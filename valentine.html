@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💌</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background: #ccc;
+    }
+
+    /* Letter */
+    .letter {
+      font-size: 70px;
+      cursor: pointer;
+      display: none;
+      animation: float 1.5s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Love card */
+    .love-card {
+  display: none;
+  background-image: url("letter-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 30px;
+  border-radius: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+.love-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.love-card * {
+  position: relative;
+  z-index: 1;
+}
+.love-card {
+  display: none;
+  position: relative;
+  background-image: url("backpic.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 30px;
+  border-radius: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+  </style>
+</head>
+<body>
+
+  <div class="card" id="mainCard">
+    <h1 id="question">Will you be my Valentine? 💕</h1>
+    <button id="yesBtn" onclick="yesClick()">Yes 💖</button>
+    <button id="noBtn" onclick="noClick()">No 💔</button>
+
+    <div class="letter" id="letter" onclick="openLetter()">💌</div>
+
+    <div class="love-card" id="loveCard">
+      <h2>Happy Valentine’s Day 💘</h2>
+      <p>
+        From the moment you said yes, my heart already won.  
+        Thank you for being my favorite person, my safe place,
+        and my forever Valentine.  💖
+      </p>
+      <p><strong>I love you so much mahal.</strong></p>
+    </div>
+  </div>
+
+  <script>
+    let yesSize = 1;
+
+    function noClick() {
+      yesSize += 0.2;
+      document.getElementById("yesBtn").style.transform = `scale(${yesSize})`;
+    }
+
+    function yesClick() {
+      document.getElementById("yesBtn").style.display = "none";
+      document.getElementById("noBtn").style.display = "none";
+      document.getElementById("question").innerText = "You got mail 💌";
+      document.getElementById("letter").style.display = "block";
+    }
+
+    function openLetter() {
+      document.getElementById("letter").style.display = "none";
+      document.getElementById("question").style.display = "none";
+      document.getElementById("loveCard").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
